@@ -1,0 +1,24 @@
+{
+  "name": "ecmascript2015-fast-course",
+  "version": "1.0.0",
+  "description": "A simple bunch of examples used as an overview about ES6 (ECMAScript 2015)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Especializa/es6.git"
+  },
+  "keywords": [
+    "ES6",
+    "ECMASscript2015",
+    "ES2015"
+  ],
+  "author": "Jose Berardo Cunha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Especializa/es6/issues"
+  },
+  "homepage": "https://github.com/Especializa/es6#readme"
+}
