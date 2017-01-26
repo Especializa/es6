@@ -6,13 +6,19 @@
 class Message {
   constructor(text = '', created = Date.now()) {
     this.text = text;
-    this._created = created;
+    this.created = created;
   }
-  get created () {
+  get created() {
     return this._created;
   }
-  set created(newCreated) {
-    throw Error('You cannot modify creation time');
+  set created(created) {
+    if (typeof created === 'undefined' || isNaN(created)) {
+      throw new Error('Invalid created');
+    }
+    if (this.hasOwnProperty('_created')) {
+      throw new Error('Created already defined');
+    }
+    this._created = created;
   }
   toString() {
     return `Message created at: ${this.created} - Text: ${this.text}`;
