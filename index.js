@@ -15,13 +15,14 @@ class Message {
     if (typeof created === 'undefined' || isNaN(created)) {
       throw new Error('Invalid created');
     }
-    if (this.hasOwnProperty('_created')) {
+    if (Message.hasOwnProperty.call(this, '_created')) {
       throw new Error('Created already defined');
     }
     this._created = created;
   }
   toString() {
-    return `Message created at: ${this.created} - Text: ${this.text}`;
+    const { created, text } = this;
+    return `Message created at: ${created} - Text: ${text}`;
   }
   static newEmptyMessage() {
     return new Message();
@@ -34,7 +35,7 @@ class Message {
  */
 class ImageMessage extends Message {
   constructor(text = '', created = Date.now(),
-              url = '', thumbnail = '') {
+    url = '', thumbnail = '') {
     super(text, created);
     this.url = url;
     this.thumbnail = thumbnail;
@@ -50,40 +51,3 @@ class ImageMessage extends Message {
            `- Thumbnail: ${this.thumbnail}`;
   }
 }
-
-// Message instances
-var emptyMessage = Message.newEmptyMessage();
-var textMessage = new Message('Yesterday message', Date.now() - 86400);
-var photoMessage = new ImageMessage();
-
-// Printing objects
-console.log(emptyMessage);
-console.log(String(emptyMessage));
-console.log(String(textMessage));
-console.log(String(photoMessage));
-console.log(new Date(textMessage.created).toString());
-
-// Property shorthand
-var text = 'Some text';
-var created = Date.now();
-var duckTypeMessage = {
-  text,
-  created
-};
-console.log(duckTypeMessage);
-
-//  ---- Should be true --- //
-// emptyMessage is a Message
-console.log(emptyMessage instanceof Message);
-// textMessage is a Message
-console.log(textMessage instanceof Message);
-// photoMessage is a Message
-console.log(photoMessage instanceof Message);
-// photoMessage is an ImageMesssage
-console.log(photoMessage instanceof ImageMessage);
-
-//  ---- Should be false --- //
-// textMessage is not an ImageMesssage
-console.log(textMessage instanceof ImageMessage);
-// duckTypeMessage is not a Message
-console.log(duckTypeMessage instanceof Message);
