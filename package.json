@@ -4,8 +4,10 @@
   "description": "A simple bunch of examples used as an overview about ES6 (ECMAScript 2015)",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
-    "lint": "eslint"
+    "start": "http-server",
+    "lint": "eslint",
+    "build": "webpack",
+    "nodemon": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -14,7 +16,10 @@
   "keywords": [
     "ES6",
     "ECMASscript2015",
-    "ES2015"
+    "ES2015",
+    "ES6 modules",
+    "Webpack",
+    "Webpack 2"
   ],
   "author": "Jose Berardo Cunha",
   "license": "ISC",
@@ -26,6 +31,8 @@
     "eslint": "^3.14.0",
     "eslint-config-airbnb-base": "^11.0.1",
     "eslint-plugin-import": "^2.2.0",
-    "nodemon": "^1.11.0"
+    "http-server": "^0.9.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.2.1"
   }
 }
