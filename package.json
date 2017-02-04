@@ -6,7 +6,7 @@
   "scripts": {
     "start": "http-server",
     "lint": "eslint",
-    "build": "webpack",
+    "build": "webpack --watch --devtool source-map",
     "nodemon": "nodemon"
   },
   "repository": {
