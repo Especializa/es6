@@ -6,7 +6,8 @@
   "scripts": {
     "start": "http-server",
     "lint": "eslint",
-    "build": "webpack --watch --devtool source-map",
+    "build": "NODE_ENV=development webpack",
+    "build:prod": "webpack",
     "nodemon": "nodemon"
   },
   "repository": {
@@ -31,8 +32,11 @@
     "eslint": "^3.14.0",
     "eslint-config-airbnb-base": "^11.0.1",
     "eslint-plugin-import": "^2.2.0",
+    "express": "^4.14.1",
     "http-server": "^0.9.0",
     "nodemon": "^1.11.0",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-dev-server": "^2.3.0"
   }
 }
