@@ -8,7 +8,10 @@
     "lint": "eslint",
     "build": "NODE_ENV=development webpack",
     "build:prod": "webpack",
-    "nodemon": "nodemon"
+    "nodemon": "nodemon",
+    "serve": "webpack-dev-server",
+    "express": "NODE_ENV=development PORT=8080 node server.js",
+    "express:prod": "npm run build:prod && PORT=8081 node server.js"
   },
   "repository": {
     "type": "git",
