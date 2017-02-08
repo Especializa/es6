@@ -1,7 +1,4 @@
-import ImageMessage from './model/image-message.model';
+import Message from './model/message.model';
 
-const m = new ImageMessage();
-
-console.log('not empty');
-console.dir(m);
-console.log('updated again');
+console.log('Index started');
+console.dir(new Message());
