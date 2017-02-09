@@ -10,6 +10,7 @@
     "build:prod": "webpack",
     "nodemon": "nodemon",
     "serve": "webpack-dev-server",
+    "hot": "NODE_ENV=hot webpack-dev-server",
     "express": "NODE_ENV=development PORT=8080 node server.js",
     "express:prod": "npm run build:prod && PORT=8081 node server.js"
   },
