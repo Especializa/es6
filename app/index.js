@@ -1,5 +1,7 @@
 import Message from './model/message.model';
 import template from './messages.html';
+import './styles/modules/MessageBox.scss';
+import './styles/modules/MessagesArea.scss';
 
 console.log('Index started');
 console.dir(new Message());

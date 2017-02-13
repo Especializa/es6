@@ -1,0 +1,50 @@
+@import '../config/base';
+@import '../config/colors';
+@import '../config/mixins';
+
+.MessageBox {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background-color: $primary-color;
+  color: $primary-color-text;
+  margin: 0;
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  min-height: 80px;
+
+  &::before {
+    content: ' ';
+    width: 100%;
+    height: 15px;
+    background-color: $primary-color-dark;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__text {
+    flex-grow: 4;
+    color: $secondary-text-color;
+    background-color: $primary-color-light;
+  }
+
+  &__send {
+    color: $primary-color-text;
+    background-color: $accent-color;
+    flex-grow: 1;
+    text-transform: uppercase;
+    @include transition(box-shadow 1s .5s);
+
+    &:hover {
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23);
+    }
+  }
+
+  * {
+    @include border-radius(4px);
+    margin: 30px 5px 20px 5px;
+    padding: 5px;
+    border: 0;
+  }
+}

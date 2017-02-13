@@ -1,0 +1,24 @@
+@import '../config/base';
+@import '../config/colors';
+@import '../config/mixins';
+
+.MessagesArea {
+  font-family: sans-serif;
+  overflow: auto;
+
+  .List {
+    margin: 0;
+    padding: 0;
+
+    &__Item {
+      padding: 16px;
+      border-bottom: 1px solid $divider-color;
+      list-style: none;
+
+      &__Created {
+        font-size: .8em;
+        color: $secondary-text-color;
+      }
+    }
+  }
+}
