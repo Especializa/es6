@@ -1,6 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+
+const extractSass = new ExtractTextWebpackPlugin({
+  filename: '[name].[contenthash:8].bundle.css',
+  disable: false,
+});
 
 const config = {
   entry: './app/index.js',
@@ -13,9 +19,10 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'app', 'index.html'),
     }),
+    extractSass,
   ],
   module: {
-    loaders: [
+    rules: [
       {
         loader: 'html-es6-template-loader',
         test: /\.html$/,
@@ -33,6 +40,16 @@ const config = {
           presets: ['es2015'],
         },
         exclude: /node_modules/,
+      },
+      {
+        test: /\.s[ac]ss$/,
+        loader: extractSass.extract({
+          loader: [
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' },
+          ],
+          fallbackLoader: 'style-loader',
+        }),
       },
     ],
   },

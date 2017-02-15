@@ -9,15 +9,30 @@
   .List {
     margin: 0;
     padding: 0;
+    background: rgba(255, 255, 255, 0.9);
+    min-height: 100%;
 
     &__Item {
-      padding: 16px;
+      position: relative;
+      padding: 16px 16px 16px 36px;
       border-bottom: 1px solid $divider-color;
       list-style: none;
 
       &__Created {
         font-size: .8em;
         color: $secondary-text-color;
+      }
+
+      &::before {
+        content: ' ';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url(../../images/bird.png);
+        background-size: 20px 20px;
+        position: absolute;
+        left: 10px;
+        margin-top: 3px;
       }
     }
   }

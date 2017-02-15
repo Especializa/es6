@@ -5,4 +5,12 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background: url(../../images/course_wallpaper.jpg);
+  background-size: cover;
+
+  img {
+    width: 100px;
+    float: right;
+    margin: 5px;
+  }
 }
