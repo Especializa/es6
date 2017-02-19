@@ -3,15 +3,16 @@
 @import '../config/mixins';
 
 .MessageBox {
-  position: relative;
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
+  position: relative;
   background-color: $primary-color;
   color: $primary-color-text;
   margin: 0;
   padding: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   min-height: 80px;
+  font-family: sans-serif;
 
   &::before {
     content: ' ';
@@ -23,28 +24,44 @@
     left: 0;
   }
 
-  &__text {
-    flex-grow: 4;
-    color: $secondary-text-color;
-    background-color: $primary-color-light;
-  }
+  &__fields {
+    display: flex;
+    align-items: stretch;
 
-  &__send {
-    color: $primary-color-text;
-    background-color: $accent-color;
-    flex-grow: 1;
-    text-transform: uppercase;
-    @include transition(box-shadow 1s .5s);
+    &--text {
+      flex-grow: 4;
+      color: $secondary-text-color;
+      background-color: $primary-color-light;
+    }
 
-    &:hover {
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23);
+    &--button {
+      color: $primary-color-text;
+      background-color: $accent-color;
+      flex-grow: 1;
+      text-transform: uppercase;
+      @include transition(box-shadow 1s .5s);
+
+      &:hover {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23);
+      }
+    }
+
+    * {
+      @include border-radius(4px);
+      margin: 30px 5px 20px 5px;
+      padding: 5px;
+      border: 0;
     }
   }
 
-  * {
-    @include border-radius(4px);
-    margin: 30px 5px 20px 5px;
-    padding: 5px;
-    border: 0;
+  &--link {
+    color: $primary-color-text;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .7em;
+    margin: -10px 0 0 5px;
+    width: 10em;
   }
 }
