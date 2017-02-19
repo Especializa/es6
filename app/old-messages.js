@@ -6,7 +6,7 @@ import './styles/modules/MessagesArea.scss';
 const messages = generator();
 
 const messagesContent = messages
-  .map(m => { console.log(new Date(m.created)); return template({ m, relativeTime: moment(m.created).fromNow() }) })
+  .map(m => template({ m, relativeTime: moment(m.created).fromNow() }))
   .reduce((result, current) => result + current);
 
 /* eslint no-undef: 0 */
