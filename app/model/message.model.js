@@ -1,4 +1,4 @@
-class Message {
+export default class Message {
   constructor(text = '', created = Date.now()) {
     this.text = text;
     this.created = created;
@@ -23,4 +23,3 @@ class Message {
     return new Message();
   }
 }
-module.exports = Message;

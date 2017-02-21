@@ -54,6 +54,8 @@
     "rimraf": "^2.6.0",
     "sass-loader": "^5.0.1",
     "style-loader": "^0.13.1",
+    "uglifyjs": "^2.4.10",
+    "uglifyjs-webpack-plugin": "^0.2.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
