@@ -13,7 +13,8 @@
     "serve": "webpack-dev-server",
     "hot": "NODE_ENV=hot webpack-dev-server",
     "express:dev": "NODE_ENV=development PORT=8080 node server.js",
-    "express": "npm run build && PORT=8081 node server.js"
+    "express": "npm run build && PORT=8081 node server.js",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,6 @@
   },
   "homepage": "https://github.com/Especializa/es6#readme",
   "devDependencies": {
-    "awesome-typescript-loader": "^3.0.7",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.22.0",
