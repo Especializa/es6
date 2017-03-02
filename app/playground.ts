@@ -1,6 +1,6 @@
 let myString: string = 'abc';
 let myBoolean: boolean = true;
-let myNumber:number = 10.5;
+let myNumber: number = 10.5;
 let myArray: string[] = ['A', 'B', 'C'];
 let myTuple: [string, number] = ['A', 10];
 

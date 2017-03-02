@@ -17,7 +17,7 @@ const minify = {
 };
 const config = {
   entry: {
-    main: './app/index.js',
+    main: './app/index.ts',
     oldMessages: './app/old-messages.js',
   },
   output: {
@@ -72,6 +72,10 @@ const config = {
           ],
         },
         exclude: /node_modules/,
+      },
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript-loader',
       },
       {
         test: /\.s[ac]ss$/,
