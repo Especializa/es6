@@ -19,11 +19,15 @@ const config = {
   entry: {
     main: './app/index.ts',
     oldMessages: './app/old-messages.js',
+    vendor: ['whatwg-fetch'],
   },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[hash:8].bundle.js',
     publicPath: '/',
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -34,17 +38,19 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'app', 'index.html'),
       filename: 'index.html',
-      chunks: ['main', 'commons'],
+      chunks: ['main', 'commons', 'vendor'],
       minify,
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'app', 'old-messages.html'),
       filename: 'old-messages.html',
-      chunks: ['oldMessages', 'commons'],
+      chunks: ['oldMessages', 'commons', 'vendor'],
       minify,
     }),
     extractSass,
-    new UglifyJsWebpackPlugin(),
+    new UglifyJsWebpackPlugin({
+      sourceMap: true,
+    }),
     new CompressionWebpackPlugin({
       asset: '[path].gz',
     }),
