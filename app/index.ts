@@ -1,4 +1,7 @@
 import moment from 'moment';
+import Message from './model/message.model';
+import { messageFactory } from './utils';
+
 import './styles/modules/MessageBox.scss';
 import './styles/modules/MessagesArea.scss';
 
@@ -7,18 +10,13 @@ const logo: any = require('./images/especializa_logo.jpg');
 
 console.log('Index started again');
 
-const Message = function(text) {
-  this.text = text;
-  this.created = Date.now();
-};
-
 (<HTMLButtonElement> document.getElementById('send')).onclick = () => {
-  const m = new Message(
-    (<HTMLInputElement> document.getElementById('message')).value,
-  );
-  (<HTMLElement> document.getElementById('messages')).innerHTML += template({
-    m,
-    relativeTime: moment(m.created).fromNow(),
+  messageFactory((<HTMLInputElement> document.getElementById('message')).value)
+  .then((m: Message) => {
+    (<HTMLElement> document.getElementById('messages')).innerHTML += template({
+        m,
+        relativeTime: moment(m.created).fromNow(),
+      });
   });
 };
 
