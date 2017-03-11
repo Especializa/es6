@@ -68,9 +68,7 @@
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
-    "@types/core-js": "^0.9.35",
     "moment": "^2.17.1",
-    "ts-promise": "^0.3.4",
     "whatwg-fetch": "^2.0.3"
   }
 }
