@@ -1,5 +1,5 @@
-import ImageMessage from './model/image-message.model';
-import Message from './model/message.model';
+import { ImageMessage } from './model/image-message.model';
+import { Message } from './model/message.model';
 
 function messageFactory(text: string): Promise<Message> {
   const giphy: RegExp = /\/giphy ('.*'|\w+)/;
@@ -21,4 +21,21 @@ function messageFactory(text: string): Promise<Message> {
   return Promise.resolve(new Message(text));
 }
 
-export { messageFactory };
+class Store<T> {
+  private store: Set<T>;
+  constructor() {
+    const sStore: (string | null) = localStorage.getItem('store');
+    this.store = sStore ? JSON.parse(sStore) : new Set<T>();
+  }
+  public add(item: T): void {
+    this.store.add(item);
+  }
+  public commit(): void {
+    localStorage.setItem('store', JSON.stringify(Array.from(this.store)));
+  }
+  public list(): T[] {
+    return Array.from(this.store);
+  }
+}
+
+export { messageFactory, Store };

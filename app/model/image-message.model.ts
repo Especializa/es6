@@ -1,6 +1,6 @@
-import Message from './message.model';
+import { Message } from './message.model';
 
-export default class ImageMessage extends Message {
+export class ImageMessage extends Message {
 
   constructor(text = '',
               created = Date.now(),

@@ -18,7 +18,7 @@ const minify = {
 const config = {
   entry: {
     main: './app/index.ts',
-    oldMessages: './app/old-messages.js',
+    oldMessages: './app/old-messages.ts',
     vendor: ['whatwg-fetch'],
   },
   output: {
