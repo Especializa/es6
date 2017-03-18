@@ -1,7 +1,4 @@
-export class Message {
-  public static newEmptyMessage(): Message {
-    return new Message();
-  }
+export abstract class Message {
 
   constructor(public text: string = '',
               public readonly created: number = Date.now()) {

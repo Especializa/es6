@@ -1,7 +1,16 @@
+///////////////////////////////////////
+// THIST CODE IS NOT COMPILABLE      //
+// AS MESSAGE IS ABSTRACT            //
+// IT IS JUST FOR LEARNING PURPOSES  //
+///////////////////////////////////////
 import { ImageMessage } from './model/image-message.model';
 import { Message } from './model/message.model';
 
-function messageFactory(text: string): Promise<Message> {
+interface Factory {
+  (text: string): Promise<any>;
+}
+
+const messageFactory: Factory = (text: string): Promise<Message>  => {
   const giphy: RegExp = /\/giphy ('.*'|\w+)/;
   if (giphy.test(text)) {
     const match: string = (text.match(giphy) as string[])[1];
@@ -19,12 +28,12 @@ function messageFactory(text: string): Promise<Message> {
     .catch(() => new Message(text)) as Promise<Message>;
   }
   return Promise.resolve(new Message(text));
-}
+};
 
 class Store<T> {
   private store: Set<T>;
   constructor() {
-    const sStore: (string | null) = localStorage.getItem('store');
+    const sStore: string | null = localStorage.getItem('store');
     this.store = sStore ? JSON.parse(sStore) : new Set<T>();
   }
   public add(item: T): void {
