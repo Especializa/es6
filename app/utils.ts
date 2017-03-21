@@ -1,5 +1,5 @@
-import { ImageMessage } from './model/image-message.model';
-import { Message } from './model/message.model';
+import { ImageMessage } from './model';
+import { Message } from './model';
 
 function messageFactory(text: string): Promise<Message> {
   const giphy: RegExp = /\/giphy ('.*'|\w+)/;

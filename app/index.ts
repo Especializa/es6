@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { Message } from './model/message.model';
+import { Message } from './model';
 import { messageFactory, Store } from './utils';
 
 import './styles/modules/MessageBox.scss';

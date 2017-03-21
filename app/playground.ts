@@ -1,2 +1,2 @@
-import { ImageMessage } from './model/image-message.model';
-import { Message } from './model/message.model';
+import { ImageMessage } from './model';
+import { Message } from './model';
