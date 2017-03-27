@@ -12,7 +12,7 @@ This is a support project used to run you through ECMAScript new features, as we
 
 ## ES6 / ES2015 / Ecmascript 2015
 
-Follow links below to acend to lectures (must be logged in at Udemy.com) or their respective branches. Note that some lectures have no start branch which means you should look back to find the starting point. E.g., the starting point for lecture 2 - Herança is also master as it
+Follow links below to acend to lectures (must be logged in at Udemy.com) or their respective branches. Note that some lectures have no start branch which means you should look back to find the starting point.
 
 
 | Lecture                                  | Start branch        | End branch   |
