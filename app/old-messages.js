@@ -1,15 +1,15 @@
-import moment from 'moment';
-import generator from './messages-generator';
-import template from './messages.html';
-import './styles/modules/MessagesArea.scss';
-
-const messages = generator();
-
-const messagesContent = messages
-  .map(m => template({ m, relativeTime: moment(m.created).fromNow() }))
-  .reduce((result, current) => result + current);
-
-/* eslint no-undef: 0 */
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var moment_1 = require("moment");
+var utils_1 = require("./utils");
+require("./styles/modules/MessagesArea.scss");
+var template = require('./messages.html');
+var store = new utils_1.Store();
+var messages = store.list();
+var messagesContent = messages
+    .map(function (m) {
+    return template({ m: m, relativeTime: moment_1.default(m.created).fromNow() });
+})
+    .reduce(function (result, current) { return result + current; });
 document.getElementById('messages').innerHTML = messagesContent;
-
 console.log('old-messages');

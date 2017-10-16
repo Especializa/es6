@@ -1,18 +1,21 @@
-import moment from 'moment';
-import './styles/modules/MessageBox.scss';
-import './styles/modules/MessagesArea.scss';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var moment_1 = require("moment");
+var utils_1 = require("./utils");
+require("./styles/modules/MessageBox.scss");
+require("./styles/modules/MessagesArea.scss");
 var template = require('./messages.html');
 var logo = require('./images/especializa_logo.jpg');
-var Message = function (text) {
-    this.text = text;
-    this.created = Date.now();
-};
-console.log('Index started');
+var store = new utils_1.Store();
 document.getElementById('send').onclick = function () {
-    var m = new Message(document.getElementById('message').value);
-    document.getElementById('messages').innerHTML += template({
-        m: m,
-        relativeTime: moment(m.created).fromNow()
+    utils_1.messageFactory(document.getElementById('message').value)
+        .then(function (m) {
+        document.getElementById('messages').innerHTML += template({
+            m: m,
+            relativeTime: moment_1.default(m.created).fromNow(),
+        });
+        store.add(m);
+        store.commit();
     });
 };
 document.getElementById('logo').src = logo;
