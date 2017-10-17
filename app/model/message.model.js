@@ -6,14 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var test = function (data) {
-    console.log(data);
-    return function (target) {
-        console.log(target);
+var Deprecated = function (data) {
+    return function (target, propertyKey) {
+        console.warn((propertyKey || 'This class') + " has been deprecated. " +
+            ("Reason: " + data.reason + "\n") +
+            ("You should use " + data.replacement + " instead"));
     };
-};
-var deprecated = function (target) {
-    console.log('This has been deprecated');
 };
 var Message = Message_1 = (function () {
     function Message(text, created) {
@@ -31,8 +29,17 @@ var Message = Message_1 = (function () {
     };
     return Message;
 }());
+__decorate([
+    Deprecated({
+        reason: 'useless method',
+        replacement: 'normal constructor',
+    })
+], Message, "newEmptyMessage", null);
 Message = Message_1 = __decorate([
-    test({ foo: 'bar' }), deprecated
+    Deprecated({
+        reason: 'IDK',
+        replacement: 'OtherMessageClass',
+    })
 ], Message);
 exports.Message = Message;
 var Message_1;

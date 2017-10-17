@@ -1,15 +1,24 @@
-const test: Function = (data: any) => {
-  console.log(data);
-  return (target: Function) => {
-    console.log(target);
+interface IDeprecatedMetadata {
+  reason: string;
+  replacement: string;
+}
+const Deprecated: Function = (data: IDeprecatedMetadata) => {
+  return (target: Function, propertyKey?: string) => {
+    console.warn(`${propertyKey || 'This class'} has been deprecated. ` +
+                 `Reason: ${data.reason}\n` +
+                 `You should use ${data.replacement} instead`);
   };
 };
-const deprecated: ClassDecorator = (target: Function) => {
-  console.log('This has been deprecated');
-};
 
-@test({ foo: 'bar' }) @deprecated
+@Deprecated({
+  reason: 'IDK',
+  replacement: 'OtherMessageClass',
+})
 export class Message {
+  @Deprecated({
+    reason: 'useless method',
+    replacement: 'normal constructor',
+  })
   public static newEmptyMessage(): Message {
     return new Message();
   }
